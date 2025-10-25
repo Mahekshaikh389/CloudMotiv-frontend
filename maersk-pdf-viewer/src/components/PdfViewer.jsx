@@ -11,7 +11,6 @@ export default function PdfViewer({ pdfUrl, highlightPhrase, onLoaded }) {
   const [pdf, setPdf] = useState(null);
   const [scale, setScale] = useState(1.3);
 
-  // ✅ Adjust scale dynamically when screen size changes
   useEffect(() => {
     const updateScale = () => {
       const width = window.innerWidth;
@@ -107,68 +106,16 @@ export default function PdfViewer({ pdfUrl, highlightPhrase, onLoaded }) {
     renderAll();
   }, [pdf, scale]);
 
-  // ✅ Highlight logic remains same
-  // useEffect(() => {
-  //   if (!highlightPhrase) return;
-  //   const container = containerRef.current;
-  //   if (!container) return;
-
-  //   container.querySelectorAll(".highlight").forEach((el) => {
-  //     el.classList.remove("highlight");
-  //   });
-
-  //   const normalize = (s) => s.replace(/\s+/g, " ").trim().toLowerCase();
-  //   const phrase = normalize(highlightPhrase);
-  //   if (!phrase) return;
-
-  //   const pages = Array.from(container.children);
-  //   for (const pageDiv of pages) {
-  //     const spans = Array.from(pageDiv.querySelectorAll(".textItem"));
-  //     const texts = spans.map((s) => normalize(s.textContent || ""));
-
-  //     let i = 0;
-  //     while (i < spans.length) {
-  //       if (texts[i].length === 0) {
-  //         i++;
-  //         continue;
-  //       }
-  //       let j = i;
-  //       let combined = texts[i];
-  //       while (combined.length < phrase.length && j + 1 < spans.length) {
-  //         j++;
-  //         combined += " " + texts[j];
-  //       }
-  //       let k = j;
-  //       let candidate = combined;
-  //       while (candidate.length >= phrase.length && i <= k) {
-  //         if (candidate.includes(phrase)) {
-  //           for (let sIndex = i; sIndex <= k; sIndex++) {
-  //             spans[sIndex].classList.add("highlight");
-  //           }
-  //           pageDiv.scrollIntoView({ behavior: "smooth", block: "center" });
-  //           return;
-  //         }
-  //         k--;
-  //         candidate = texts.slice(i, k + 1).join(" ");
-  //       }
-  //       i++;
-  //     }
-  //   }
-  // }, [highlightPhrase]);
-
-
-
+  
 
   useEffect(() => {
   const container = containerRef.current;
   if (!container) return;
 
-  // ✅ Always clear previous highlights first
   container.querySelectorAll(".highlight").forEach((el) => {
     el.classList.remove("highlight");
   });
 
-  // ✅ If highlightPhrase is empty → just stop here (clears highlights)
   if (!highlightPhrase || highlightPhrase.trim() === "") return;
 
   const normalize = (s) => s.replace(/\s+/g, " ").trim().toLowerCase();
