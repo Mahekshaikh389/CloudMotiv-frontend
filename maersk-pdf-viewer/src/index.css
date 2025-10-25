@@ -1,0 +1,10 @@
+@import "tailwindcss";
+.textItem {
+  cursor: text;
+}
+
+/* highlight class applied to matched spans */
+.highlight {
+  background: yellow;
+  border-radius: 2px;
+}

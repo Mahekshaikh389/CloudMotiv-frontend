@@ -1,0 +1,59 @@
+.app-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* PDF viewer section */
+.pdf-section {
+  flex: 2;
+  min-width: 75%; /* Important for proper flex behavior */
+  overflow-y: auto;
+  border-right: 1px solid #e0e0e0;
+  background-color: #fafafa;
+}
+
+/* Sidebar section */
+.sidebar-section {
+  flex: 1;
+  /* padding: 1rem; */
+  overflow-y: auto;
+  background: #211f1f;
+  border-left: 1px solid #e0e0e0;
+
+}
+
+/* Buttons and list items */
+.sidebar-section button {
+  transition: all 0.2s ease;
+}
+.sidebar-section button:hover {
+  background-color: #383b3d;
+  border-radius: 10px;
+  /* padding: 10px 10px; */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .pdf-section {
+    height: 80vh;
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .sidebar-section {
+    height: 20vh;
+  }
+}
+
+/* Highlight style (just to ensure visibility) */
+.highlight {
+  background-color: yellow;
+  border-radius: 3px;
+}
