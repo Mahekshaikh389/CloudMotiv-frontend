@@ -1,35 +1,3 @@
-// import React from "react";
-
-// export default function Sidebar({ onClickHighlight }) {
-//   const handleHighlight = () => {
-//     onClickHighlight("Gain on sale of non-current assets, etc");
-//   };
-
-//   return (
-//     <div style={{ padding: "1rem" , height:"100vh" , color: "white",}}>
-//       <h3 className="font-bold mb-10 text-3xl" >Analysis</h3>
-//       <ol className="my-4 text-lg  ">
-//         <li className="my-2">[1] Some other note</li>
-//         <li className="my-2">[2] Another note</li>
-//         <li className="my-2 rounded-full cursor-pointer">
-//           <button
-//             onClick={handleHighlight}
-//           >[3] Highlight “Gain on sale of non-current assets, etc”
-//           </button>
-//         </li>
-//       </ol>
-
-//       <p className="mt-6 ">
-//         The text references the Maersk financial line “Gain on sale of non-current assets, etc”
-//         (Q2 2025 reported as USD 25m).
-//       </p>
-//     </div>
-//   );
-// }
-
-
-
-
 
 
 import React from "react";
@@ -37,6 +5,10 @@ import React from "react";
 export default function Sidebar({ onClickHighlight }) {
   const handleHighlight = () => {
     onClickHighlight("Gain on sale of non-current assets, etc");
+  };
+
+  const handleClear = () => {
+    onClickHighlight("");
   };
 
   return (
@@ -124,6 +96,33 @@ export default function Sidebar({ onClickHighlight }) {
             </button>
           </li>
         </ol>
+      </div>
+
+     
+      <div >
+        <button
+          onClick={handleClear}
+          style={{
+            width: "100%",
+            padding: "0.9rem 1rem",
+            fontSize: "1rem",
+            border: "none",
+            borderRadius: "8px",
+            color: "#fff",
+            background:
+              "linear-gradient(90deg, #2e1b1bff 0%, #5a4646ff 100%)", // red gradient
+            cursor: "pointer",
+            transition: "all 0.3s ease",
+            fontWeight: "500",
+            boxShadow: "0 2px 8px rgba(239, 68, 68, 0.4)",
+          }}
+          onMouseEnter={(e) =>
+            (e.currentTarget.style.background =
+              "linear-gradient(90deg, #2e1b1bff 0%, #5a4646ff 100%)")
+          }
+        >
+          ❌ Clear Highlight
+        </button>
       </div>
 
       <p
